@@ -19,7 +19,9 @@
   "homepage": "https://github.com/LShumate039/Final-project-#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "node": "^13.3.0",
     "node-fetch": "^2.6.0",
+    "nodemon": "^2.0.1",
     "pug": "^2.0.4"
   }
 }
