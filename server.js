@@ -16,22 +16,41 @@ app.set("views" , 'views');
   */ 
 // app.get('/', (req, res) => res.send('Hello World!'))
 
-app.get('/', (req, res) => {
-    res.render('index', {
-      title: 'lennye', 
+// app.get('/', (req, res) => {
+//     res.render('index', {
+//       title: 'lennye', 
       
-    })
-});
+//     })
+// });
 
-app.get('/pokemon/:name', (req, res) => {
+//app.get('/pokemon/:name', (req, res) => {
 
   // console.log(res.param.name); 	
-});
+//});
 
-app.get('/starwars/:characters ', (req, res) => {
-  console.log('something2'); 	
-});
+//app.get('/starwars/:characters ', (req, res) => {
+  //console.log('something2'); 	
+//});
 
+
+app.get("/", (req, res, next) => {
+  let url = "localhost:4000"
+  res.render("index", {url:url});
+  });
+  
+
+app.get("/starwars", (req, res, next) => {
+  let url = "localhost:4000"
+  res.render("starwars", {url:url});
+  });
+
+  app.get("/pokemon", (req, res, next) => {
+    let url = "localhost:4000";
+    res.render("pokemon", {url:url});
+    });
+  
+
+  
 
 //app.get('/app.js', (req, res) => res.render('about',{article:'about'}))
 
