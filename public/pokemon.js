@@ -1,27 +1,48 @@
+var express = require('express');
+var router = express.app();
+const fetch = require("node-fetch");
 
-app.get('/:id', async (req, res) => {
+/* GET users listing. */
+app.get('/', async function(req, res, next) {
+      try {
+        const URI = `https://pokeapi.co/api/v2/pokemon/`;
+        const pokemonData = await fetch(URI);
+        const json = await pokemonData.json();
+        const [...monsters] = await json.results;
+        console.log(monsters);
+        // const pokeImg = await json.sprites.back_default;
+        // console.log(pokeImg);
+        // await res.send("hi")
+        await res.render('poke', {
+            results: monsters,
+            // name: pokeName,
+            // img: pokeImg
+        });
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+app.get('/:id', async function(req, res, next) {
   try {
-      const URI = `https://pokeapi.co/api/v2/pokemon/${req.params.id}`;
-      const pokemonData = await fetch(URI);
-      const json = await pokemonData.json();
-      console.log(json);
-      const pokeName = await json.name;
-      const pokeImg = await json.sprites.back_default;
-      console.log(pokeImg);
-  
-       await res.render('index', {
-           name: pokeName,
-           img: pokeImg
-       });
+    const URI = `https://pokeapi.co/api/v2/pokemon/${req.params.id}`;
+    const pokemonData = await fetch(URI);
+    const json = await pokemonData.json();
+    // console.log(json.results);
+    const pokeName = await json.name;
+    const pokeImg = await json.sprites.back_default;
+    // console.log(pokeImg);
+
+    await res.render('pokename', {
+        name: pokeName,
+        img: pokeImg
+    });
   } catch (error) {
       console.log(error);
   }
-       
 });
 
-
-
-
+module.exports = router;
 
 
 

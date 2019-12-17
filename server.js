@@ -35,7 +35,9 @@ app.set("views" , 'views');
 
 app.get("/", (req, res, next) => {
   let url = "localhost:4000"
-  res.render("index", {url:url});
+  res.render("index", {
+    title: "Home"
+  });
   });
   
 
