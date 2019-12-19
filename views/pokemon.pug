@@ -1,16 +1,52 @@
 html
 head 
-    script(src="pokemon.js")
+    
     title GOT TO CATCH THEM ALL
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+
     //- script(src="server.js")
     //- script(src="app.js")
 body 
-a(href="/") Home
-
-//- template.pug
-
-
-
-
-
-
+link(href='sticky-footer-navbar.css' rel='stylesheet')
+header
+  // Fixed navbar
+  nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
+    a.navbar-brand(href='/') Home
+    a.navbar-brand(href='/starwars') Starwars
+    a.navbar-brand(href='/pokemon') Pokemon
+    a.navbar-brand(href='#') Contact 
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarCollapse' aria-controls='navbarCollapse' aria-expanded='false' aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarCollapse.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+            span.sr-only (current)
+        li.nav-item
+         
+        li.nav-item
+        
+      form.form-inline.mt-2.mt-md-0
+        input.form-control.mr-sm-2(type='text' placeholder='Search' aria-label='Search')
+        button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+br
+.container
+  
+  h1.mt-5 Sticky footer with fixed navbar
+  p.lead
+    | Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with 
+    code padding-top: 60px;
+    |  on the 
+    code main &gt; .container
+    | .
+  
+   
+    | Back to 
+    a(href='/docs/4.3/examples/sticky-footer/') the default sticky footer
+    |  minus the navbar.
+footer.footer.mt-auto.py-3
+  .container
+    span.text-muted Place sticky footer content here.
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+script.
+  window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\\/script>')
+script(src='/docs/4.3/dist/js/bootstrap.bundle.min.js' integrity='sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o' crossorigin='anonymous')
